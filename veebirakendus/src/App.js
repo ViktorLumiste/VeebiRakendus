@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import './App.css';
 
@@ -41,16 +41,20 @@ function App() {
             {prices.length > 0 &&
                 <table style={{marginLeft: "100px"}}>
                     <thead>
-                    <th style={{border: "1px solid #ddd", padding: "12px", backgroundColor: "#04AA6D"}}>Ajatempel</th>
-                    <th style={{border: "1px solid #ddd", padding: "12px", backgroundColor: "#04AA6D"}}>Hind</th>
+                    <tr>
+                        <td style={{border: "1px solid #ddd", padding: "12px", backgroundColor: "#04AA6D"}}>Ajatempel</td>
+                        <td style={{border: "1px solid #ddd", padding: "12px", backgroundColor: "#04AA6D"}}>Hind</td>
+                    </tr>
                     </thead>
                     <tbody>
+                    <tr>
                     <td style={{position: "absolute", left: "30px"}}>{chosenCountry}</td>
                     {prices.map(data =>
                         <tr key={data.timestamp}>
                             <td style={{border: "1px solid #ddd", padding: "8px"}}>{new Date(data.timestamp * 1000).toISOString()}</td>
                             <td style={{border: "1px solid #ddd", padding: "8px"}}>{data.price}</td>
                         </tr>)}
+                    </tr>
                     </tbody>
                 </table>}
         </div>
